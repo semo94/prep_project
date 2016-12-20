@@ -1,6 +1,11 @@
+
+    @media only screen and (max-width: 720px) {
+     body { position: absolute; }
+}
+
 .search {
-	 width: 250px;
-	 height: 40px; 
+	width: 250px;
+	height: 40px; 
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
@@ -15,15 +20,15 @@
 }
 
 
-#container{
 
-	overflow:hidden;}
-#container img{
+#products{overflow:hidden;}
+#products ul{
     float:left;
-    width: 20%
-
 }
 
-.carImage {
-    margin: 20px 20px 20px 20px;
+#products ul img{
+    width: 160px;
+    height: 120px;
 }
+
+#product ul 
