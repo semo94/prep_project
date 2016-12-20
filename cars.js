@@ -1,4 +1,4 @@
-var _row ="Cadillac-black-2014-25000-https://goo.gl/iQdqDV,Lamborghini-silver-2017-100000-https://goo.gl/J0Kphk,Ford-white-2012-17000-https://goo.gl/goA8XV" 
+var _row ="Cadillac-black-2014-25000-https://goo.gl/iQdqDV,Lamborghini-silver-2017-100000-https://goo.gl/J0Kphk,Ford-white-2012-17000-https://goo.gl/goA8XV,Cadillac-black-2014-25000-https://goo.gl/iQdqDV,Lamborghini-silver-2017-100000-https://goo.gl/J0Kphk,Ford-white-2012-17000-https://goo.gl/goA8XV,Cadillac-black-2014-25000-https://goo.gl/iQdqDV,Lamborghini-silver-2017-100000-https://goo.gl/J0Kphk,Ford-white-2012-17000-https://goo.gl/goA8XV,Cadillac-black-2014-25000-https://goo.gl/iQdqDV,Lamborghini-silver-2017-100000-https://goo.gl/J0Kphk,Ford-white-2012-17000-https://goo.gl/goA8XV,Cadillac-black-2014-25000-https://goo.gl/iQdqDV,Lamborghini-silver-2017-100000-https://goo.gl/J0Kphk,Ford-white-2012-17000-https://goo.gl/goA8XV,Cadillac-black-2014-25000-https://goo.gl/iQdqDV,Lamborghini-silver-2017-100000-https://goo.gl/J0Kphk,Ford-white-2012-17000-https://goo.gl/goA8XV" 
 
 function CarsHub(){
 	var functionOfCars={};
@@ -24,10 +24,10 @@ var seperateCars = function (){
 	return this.carsArray ;
 }
 
-var itemFactory=function (brand, colore,yearOfProd,price,url){
+var itemFactory=function (brand, color,yearOfProd,price,url){
 	return {
 		brand:brand,
-		colore:colore,
+		color:color,
 		yearOfProd:yearOfProd ,
 		price:price,
 		url:url
@@ -48,12 +48,7 @@ var publishItems= function(){
 var displayCars = function(){
 	this.publishItems() ;
 	each(this.carsLibrary , function(elem , i){
-	$('#container').append("<div> <img src='" + elem["url"] + "' width='160' height='120'/>  </div>");
-	
-
-	//$('#container').append("<div>'" + elem['brand'] + "'</div>");
-	// $('.backgound').append("<li>'" +"price : "+ elem['price'] + " JD"+ "'</li>");
-	// $('.backgound').append("<li>'" +"year of production : "+ elem['yearOfProd'] + "'</li>");
+		$('#products').append("<ul><img src="+elem['url']+"><li>"+elem['brand']+"</li><li>"+elem['color']+"</li><li>"+elem['yearOfProd']+"</li><li>"+elem['price']+"</li></ul>");
 	})
 }
 
