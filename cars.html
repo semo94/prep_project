@@ -1,23 +1,82 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>CarsHub</title>
-		<link rel="stylesheet" type="text/css" href="cars.css">
-		<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
-		<script type="text/javascript" src="cars.js"></script>
-	</head>
+<head>
+	<title>CarsHub</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="cars.css">
+	<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="cars.js"></script>
+</head>
 
-	<body>
+<body>
+	<header id="top-header">
+		<h2>CarsHub</h2>
+	</header>
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#myCarousel" data-slide-to="1"></li>
+			<li data-target="#myCarousel" data-slide-to="2"></li>
+		</ol>
 
-		<div>
-			<center>
-			<h1>CarsHub</h1>
-			<h5>your best entrance to cars worlds :)</h5>
-			<input type="text" name="search" placeholder="Search.." class = "search">
-			</center>	
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner" role="listbox">
+			<div class="item active">
+				<img src="http://s1.cdn.autoevolution.com/images/news/street-racing-tuned-cars-and-adrenaline-police-lights-and-death-43812_1.jpg">
+				<div class="carousel-caption">
+					<h3>CarsHub</h3>
+					<p>your best entrance to cars worlds</p>
+				</div>
+			</div>
+
+			<div class="item">
+				<img src="https://img3.goodfon.ru/original/3000x2000/3/84/infiniti-m35h-hybrid-business.jpg?d=1" alt="carshub">
+				<div class="carousel-caption">
+					<h3>CarsHub</h3>
+					<p>your best entrance to cars worlds</p>
+				</div>
+			</div>
+
+			<div class="item">
+				<img src="http://3.bp.blogspot.com/-1ln7-dbG01o/VgQlKxot8_I/AAAAAAAAX9E/4CQNmpnNWcQ/s1600/porsche-panamera-turbo-cars-city-night.jpg">
+				<div class="carousel-caption">
+					<h3>CarsHub</h3>
+					<p>your best entrance to cars worlds</p>
+				</div>
+			</div>
 		</div>
-		
-		<div id="products"></div>
 
-	</body>
+		<!-- Left and right controls -->
+		<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+	</div>
+
+	<div class="container">
+		<center>	
+			<div id="search-box" class="row">
+				<div class="col-lg-4 col-md-offset-4">
+                	<div class="input-group">
+	                    <input type="text" class="search-box form-control" name="search" placeholder="Search for..." aria-invalid="false" style="">
+	                    <span class="input-group-btn">
+	                    	<button class="btn btn-secondary btn-info search-box" type="button"><span class="glyphicon glyphicon-search"></span></button>
+	                    </span>   
+               		</div>
+            	</div>
+			</div>
+		</center>	
+		<div id="products" class="row">	
+		</div>
+	</div>
+
+	<footer>
+	</footer>
+</body>
 </html>
