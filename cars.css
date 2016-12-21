@@ -1,8 +1,8 @@
 
-    @media only screen and (max-width: 720px) {
-     body { position: absolute; }
-}
+body{
 
+    background-color: #E3F2FD;
+}
 .search {
 	width: 250px;
 	height: 40px; 
