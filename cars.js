@@ -1,4 +1,5 @@
-var _row ="Cadillac-black-2014-25000-https://goo.gl/iQdqDV,Lamborghini-silver-2017-100000-https://goo.gl/J0Kphk,Ford-white-2012-17000-https://goo.gl/goA8XV,Cadillac-black-2014-25000-https://goo.gl/iQdqDV,Lamborghini-silver-2017-100000-https://goo.gl/J0Kphk,Ford-white-2012-17000-https://goo.gl/goA8XV,Cadillac-black-2014-25000-https://goo.gl/iQdqDV,Lamborghini-silver-2017-100000-https://goo.gl/J0Kphk,Ford-white-2012-17000-https://goo.gl/goA8XV,Cadillac-black-2014-25000-https://goo.gl/iQdqDV,Lamborghini-silver-2017-100000-https://goo.gl/J0Kphk,Ford-white-2012-17000-https://goo.gl/goA8XV,Cadillac-black-2014-25000-https://goo.gl/iQdqDV,Lamborghini-silver-2017-100000-https://goo.gl/J0Kphk,Ford-white-2012-17000-https://goo.gl/goA8XV,Cadillac-black-2014-25000-https://goo.gl/iQdqDV,Lamborghini-silver-2017-100000-https://goo.gl/J0Kphk,Ford-white-2012-17000-https://goo.gl/goA8XV" 
+var _row ="Cadillac-black-2014-80 000-https://goo.gl/iQdqDV,Lamborghini-silver-2017-250 000-https://goo.gl/J0Kphk,Ford-white-2012-17 000-https://goo.gl/goA8XV,Mercedes Benz-metal-2014-35 000-https://goo.gl/VeaaaD, Mercedes AMG-Red-2016-17 000-https://goo.gl/r1JJll,Mercedes classic-Brown-1973-2 000-https://goo.gl/EdcZrH,Mercedes E Class-Blue-2011-21 000-https://goo.gl/D1wBkg,Mercedes G class-Yellow-1999-60 000- https://goo.gl/5rsUl1,Infiniti-Pink-2014-80 000- https://goo.gl/j6VZtl,Infiniti-Gold-2009-40 000- https://goo.gl/7HC5sY,BMW S5230-Blue-2007-22 000- https://goo.gl/4cMlYf,BMW M4-Red-2016-70 000- https://goo.gl/0XTle3,BMW M7-Green-2015-99 000- https://goo.gl/PUdv0h,Audi S3 Hybrid-Multi colors-2013-63 000- https://goo.gl/mIpCcS,Audi R8-Orange-2015-200 000 - https://goo.gl/RD1o4j,	Audi q7-white-2017-155 000- https://goo.gl/WorSqd,Audi a6-Silver-2013-71 000- https://goo.gl/8aA27z,Kia Sprotage-Black-2016-40 000- https://goo.gl/O84nM2,Dodge Pick Up-Black-2015-55 000- https://goo.gl/fGYc3g ,Dodge Charger-Red-2017-65 000- https://goo.gl/fNnQzC,Dodge Charger-Dark Blue-2017-80 000- https://goo.gl/Cg5BRQ" 
+
 
 function CarsHub(){
 	var functionOfCars={};
@@ -10,6 +11,7 @@ function CarsHub(){
 	functionOfCars.addItem = addItem ;
 	functionOfCars.publishItems = publishItems ;
 	functionOfCars.displayCars = displayCars ;
+	functionOfCars.search=search ;
 
 	return functionOfCars ; 
 }
@@ -45,16 +47,35 @@ var publishItems= function(){
 	})
 }
 
-var displayCars = function(){
-	this.publishItems() ;
-	each(this.carsLibrary , function(elem , i){
-		$('#products').append("<ul><img src="+elem['url']+"><li>"+elem['brand']+"</li><li>"+elem['color']+"</li><li>"+elem['yearOfProd']+"</li><li>"+elem['price']+"</li></ul>");
+var displayCars = function(arr){
+	if(arr=== undefined){
+		arr= this.carsLibrary ;
+	}
+	each( arr, function(elem , i){
+		$('#products').append("<ul><img src="+elem['url']+"><li>"+elem['brand']+"</li><li>"+elem['color']+"</li><li>"+elem['yearOfProd']+"</li><li>"+"price : "+elem['price']+" JD"+"</li></ul>");
+	})
+	if($('#products').has('ul').length === 0){
+		$('#products').append("<p>Your search did not match any car, please try different query</p>");
+	}
+}
+
+var search = function(query){
+	return filter(this.carsLibrary , function(elem,index){
+		var str = JSON.stringify(elem)
+		return isMatch(query,elem);
 	})
 }
 
+
 $(document).ready(function(){
 	var run = CarsHub() ;
+	run.publishItems();
 	run.displayCars();
+
+	$( ".search" ).change(function() {
+	$( "#products" ).empty();
+ 	run.displayCars(run.search($(".search").val()))
+	});
 	
 })
 
@@ -85,3 +106,23 @@ function map(coll, f) {
 	});
 	return acc;
 }
+
+function isMatch(query, obj){
+	for(var key in obj){
+	if(query.toString().toLowerCase() === obj[key].toString().substr(0,query.length).toLowerCase()){
+		return true ;
+	}
+}
+	return false;
+}
+
+function filter(array, predicate) {
+     var acc = [];
+     each(array, function(element, i) {
+          if (predicate(element, i)) {
+                acc.push(element);
+          }
+     });
+     return acc;
+}
+

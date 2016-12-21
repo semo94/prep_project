@@ -1,8 +1,8 @@
 
-    @media only screen and (max-width: 720px) {
-     body { position: absolute; }
-}
+body{
 
+    background-color: #E3F2FD;
+}
 .search {
 	width: 250px;
 	height: 40px; 
@@ -27,8 +27,9 @@
 }
 
 #products ul img{
-    width: 160px;
-    height: 120px;
+    align-items: center;
+    width: 380px;
+    height: 250px;
 }
 
 #product ul 
