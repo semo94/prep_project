@@ -1,7 +1,14 @@
 
 body{
 
-    background-color:#191970;
+    background-color:#2A488C;
+}
+
+
+h2{
+    text-align: left;
+    font-size:35px;
+    font-family: cursive;
 }
 header{
     position: fixed;
@@ -14,6 +21,7 @@ header{
     color: #fff;
     text-align: center;
 }
+
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
     width: 100%;
@@ -50,6 +58,11 @@ header{
     float:left;
 }
 
+#products p{
+text-align: center;
+font-weight: 900; 
+font-size:20px ;
+}
 .thumbnail{
     border-radius: 8px;
 }
